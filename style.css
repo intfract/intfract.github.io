@@ -1,0 +1,254 @@
+body {
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+body, button, input {
+  font-family: 'Lexend Deca';
+}
+
+.cursor {
+  position: absolute;
+  background-color: var(--accent);
+  border-radius: 50%;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 64;
+  opacity: 0.25;
+  transition: transform 0.2s ease-out, background-color 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+#navigation {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+#navigation .hamburger {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 0 0 16px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+#navigation .hamburger span {
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color);
+  border-radius: 1px;
+}
+
+#navigation .logo {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  height: 100%;
+  color: var(--color);
+  font-size: 24px;
+  cursor: pointer;
+  transition: opacity 0.2s linear;
+}
+
+#navigation .logo:hover {
+  opacity: 0.75;
+}
+
+#navigation .social {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+#navigation .social a {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 16px 0 0;
+  width: 32px;
+  height: 32px;
+  transition: opacity 0.2s linear;
+}
+
+#navigation .social a:hover {
+  opacity: 0.75;
+}
+
+#navigation .social a svg {
+  fill: var(--color);
+}
+
+#particles-js{
+	position: absolute;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 64px);
+  background-color: var(--bg-color);
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 0;
+}
+
+main {
+  position: relative;
+  margin: 64px 0 0 0;
+  width: 100%;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 64px);
+}
+
+.drawer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: -400px;
+  width: 400px;
+  height: 100vh;
+  opacity: 0;
+  z-index: 32;
+  transition: left 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.drawer.active {
+  left: 0;
+  opacity: 1;
+}
+
+.menu {
+  background-color: var(--nav-bg-color);
+}
+
+.menu a {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+  width: 100%;
+  font-size: 24px;
+  opacity: 0;
+  transform: translate(-100%, 0);
+  transition: opacity 0.2s 0.2s ease-out, transform 0.2s 0.2s ease-out;
+}
+
+.menu.active a {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.material-symbols-rounded {
+  color: var(--color);
+}
+
+.hamburger.material-symbols-rounded {
+  font-size: 32px;
+}
+
+.close.material-symbols-rounded {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: var(--bg-color);
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.theme-switcher {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  padding: 4px;
+  bottom: 16px;
+  right: 16px;
+  width: 64px;
+  height: 32px;
+  background-color: var(--bg-color-weak);
+  border-radius: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  z-index: 128;
+}
+
+.theme-switcher .material-symbols-rounded {
+  margin: 0;
+  color: var(--color);
+  transition: color 0.2s ease-out, margin 0.2s ease-out;
+}
+
+.theme-switcher.active .material-symbols-rounded {
+  margin: 32px;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  width: 600px;
+  height: 400px;
+  background-color: var(--bluex);
+  backdrop-filter: blur(4px);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.read {
+  position: relative;
+  width: 50%;
+}
+
+.graphic {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+}
