@@ -55,14 +55,16 @@ let free = true
 let current = 0
 let blend = 'normal'
 
+cursor.cssWidth = 24
+cursor.cssHeight = 24
+
+let part = 0
 const sections = document.querySelectorAll('section')
 for (let i = 0; i < sections.length; i++) {
   sections[i].setAttribute('n', i)
   sections[i].style.zIndex = sections.length - i
 }
-
-cursor.cssWidth = 24
-cursor.cssHeight = 24
+const main = document.querySelector('main')
 
 document.addEventListener('mousemove', e => {
   move(cursor, e)
@@ -76,13 +78,18 @@ document.addEventListener('mouseup', e => {
   cursor.style.transform = `scale(1)`
 })
 
-document.addEventListener('mousewheel', e => {
+document.addEventListener('wheel', e => {
   if (free) {
     free = false
+    if (e.deltaY > 0) part++
+    if (e.deltaY < 0) part--
+    if (part >= sections.length) part = sections.length - 1
+    if (part < 0) part = 0
+    main.style.top = `calc(-1 * (${part} * (100vh - 64px)) + 64px)`
     setTimeout(() => {
       free = true
-      console.log(free)
-    }, 5000)
+      console.log(part)
+    }, 500)
   }
 })
 
@@ -91,8 +98,6 @@ const buttons = document.querySelectorAll('.btn:not(.btn:disabled), .ripple')
 for (const button of buttons) {
   pulse(button)
 }
-
-/* ---- particles.js config ---- */
 
 particlesJS("particles-js", {
   "particles": {
@@ -205,8 +210,6 @@ particlesJS("particles-js", {
   "retina_detect": true
 });
 
-
-/* ---- stats.js config ---- */
 update = function() {
   if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
     count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;

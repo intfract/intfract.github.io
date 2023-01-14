@@ -1,3 +1,14 @@
+:root {
+  --alpha: var(--tint);
+  --beta: var(--shade);
+  --heading-size: 24px;
+}
+
+.dark {
+  --alpha: var(--shade);
+  --beta: var(--tint);
+}
+
 body {
   background-color: var(--bg-color);
   overflow: hidden;
@@ -5,6 +16,36 @@ body {
 
 body, button, input {
   font-family: 'Lexend Deca';
+}
+
+a {
+  cursor: pointer;
+  transition-duration: 0.25s;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+a:not(.btn):after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  width: 0;
+  bottom: 0;
+  background: var(--blue);
+  height: 2px;
+  border-radius: 1px;
+  transition-property: width;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+a:not(.btn):hover:after {
+  left: 0;
+  right: auto;
+  width: 100%;
 }
 
 .cursor {
@@ -115,11 +156,12 @@ body, button, input {
 
 main {
   position: relative;
-  margin: 64px 0 0 0;
+  top: 64px;
   width: 100%;
   height: calc(100vh - 64px);
-  overflow: hidden;
+/*   overflow: hidden; */
   pointer-events: none;
+  transition: top 0.5s cubic-bezier(.25,.5,.5,1);
 }
 
 section {
@@ -130,6 +172,10 @@ section {
   align-items: center;
   width: 100%;
   height: calc(100vh - 64px);
+}
+
+section div {
+  pointer-events: all;
 }
 
 .drawer {
@@ -228,9 +274,24 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  width: 600px;
+  width: 800px;
   height: 400px;
-  background-color: var(--bluex);
+  background-color: var(--beta);
+  backdrop-filter: blur(4px);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.strip {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  height: 600px;
+  background-color: var(--beta);
   backdrop-filter: blur(4px);
   border-radius: 4px;
   box-sizing: border-box;
@@ -239,6 +300,7 @@ section {
 .read {
   position: relative;
   width: 50%;
+  color: var(--color);
 }
 
 .graphic {
@@ -251,4 +313,120 @@ section {
   width: 50%;
   height: 100%;
   box-sizing: border-box;
+}
+
+.graphic svg {
+  width: 50%;
+  height: 50%;
+}
+
+.graphic svg path {
+  fill: var(--color);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: calc((var(--heading-size) * 1.25) + 64px + 28px + 16px + 320px);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 32px var(--grey);
+  transition-property: box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.card:hover {
+  box-shadow: 0 0 16px var(--grey);
+}
+
+.card:hover .media {
+  height: 160px;
+}
+
+.card:hover .material-symbols-rounded {
+  transform: rotate(22.5deg);
+}
+
+.card:hover .body {
+  height: calc((var(--heading-size) * 1.25) + 64px + 28px + 16px + 160px);
+}
+
+.card .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: calc((var(--heading-size) * 1.25) + 64px + 28px + 16px);
+  padding: 32px;
+  box-sizing: border-box;
+  transition-property: height;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.card .media {
+  width: 100%;
+  height: 320px;
+  font-size: 0;
+  background: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-property: height;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.card .media .material-symbols-rounded {
+  font-size: 64px;
+  color: var(--light);
+  transition-property: transform;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.card .body .content {
+  width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card .body .content .heading {
+  color: var(--dark);
+  font-size: var(--heading-size);
+  font-weight: 600;
+  align-self: start;
+}
+
+.card .body .content p {
+  overflow: hidden;
+  margin: 8px 0 0 0;
+}
+
+.tags {
+  margin: 16px 0 0 0;
+  display: flex;
+  height: 28px;
+}
+
+.tag {
+  margin: 0 4px 0 0;
+  background: var(--darkest);
+  color: var(--light);
+  padding: 4px 16px;
+  border-radius: 128px;
+  font-size: 16px;
+  transition-property: background;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.tag:hover {
+  background: var(--dark);
 }

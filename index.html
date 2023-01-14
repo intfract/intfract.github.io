@@ -40,15 +40,43 @@
     <section>
       <div class="hero">
         <span class="graphic">
-          <span :class="icon">star</span>
+          <svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M64 143.065C64 139.956 67.3919 138.035 70.058 139.635L131.617 176.57C135.095 178.657 133.616 184 129.559 184H68C65.7909 184 64 182.209 64 180V143.065Z"
+              fill="#36393F" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M320 160C320 71.6344 248.366 0 160 0V320C248.366 320 320 248.366 320 160ZM249.942 139.635C252.608 138.035 256 139.956 256 143.065V180C256 182.209 254.209 184 252 184H190.441C186.384 184 184.905 178.657 188.383 176.57L249.942 139.635Z"
+              fill="#36393F" />
+          </svg>
         </span>
         <span class="read">
-          I am Int Fract!
+          <h2>About</h2>
+          I am Int Fract, a programmer and math enthusiast. My works include JavaScript <a
+            href="https://github.com/intfract/defract">libraries</a>, <a
+            href="https://github.com/intfract/discord">Discord bots</a>, and
+          useless academic documents that no one reads.
         </span>
       </div>
     </section>
     <section>
-
+      <div class="strip">
+        <div class="card">
+          <span class="media">
+            <span :class="icon">chat</span>
+          </span>
+          <span class="body">
+            <div class="content">
+              <a class="heading" href="https://github.com/intfract/discord">Discord Bot</a>
+              <p><strong>Fract</strong> is a powerful discord bot that can safely execute JavaScript code provided by
+                users!</p>
+            </div>
+            <div class="tags">
+              <span class="tag">JAVASCRIPT</span>
+              <span class="tag">DISCORD</span>
+            </div>
+          </span>
+        </div>
+      </div>
     </section>
   </main>
   <div class="cursor" ondragstart="return false;" ondrop="return false;"></div>
