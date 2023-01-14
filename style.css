@@ -48,6 +48,10 @@ a:not(.btn):hover:after {
   width: 100%;
 }
 
+a.heading {
+  color: var(--color);
+}
+
 .cursor {
   position: absolute;
   background-color: var(--accent);
@@ -398,7 +402,7 @@ section div {
 }
 
 .card .body .content .heading {
-  color: var(--dark);
+  color: var(--color);
   font-size: var(--heading-size);
   font-weight: 600;
   align-self: start;
