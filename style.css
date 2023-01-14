@@ -27,7 +27,7 @@ a:hover {
   opacity: 0.75;
 }
 
-a:not(.btn):after {
+a:not(.social a):after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -42,7 +42,7 @@ a:not(.btn):after {
   transition-timing-function: ease-out;
 }
 
-a:not(.btn):hover:after {
+a:not(.social a):hover:after {
   left: 0;
   right: auto;
   width: 100%;
