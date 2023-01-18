@@ -47,13 +47,13 @@ for (let i = 0; i < links.length; i++) {
   })
   link.addEventListener('mouseleave', e => {
     cursor.style.opacity = 0.25
-    blend = 'normal'
+    blend = 'luminosity'
   })
 }
 
 let free = true
 let current = 0
-let blend = 'normal'
+let blend = 'luminosity'
 
 cursor.cssWidth = 24
 cursor.cssHeight = 24

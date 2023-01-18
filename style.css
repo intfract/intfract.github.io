@@ -421,8 +421,8 @@ section div {
 
 .tag {
   margin: 0 4px 0 0;
-  background: var(--darkest);
-  color: var(--light);
+  background: var(--color-strong);
+  color: var(--bg-color);
   padding: 4px 16px;
   border-radius: 128px;
   font-size: 16px;
@@ -432,5 +432,5 @@ section div {
 }
 
 .tag:hover {
-  background: var(--dark);
+  background: var(--color);
 }
